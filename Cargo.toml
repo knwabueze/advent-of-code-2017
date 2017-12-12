@@ -7,4 +7,8 @@ authors = ["Kosi Nwabueze <kosinwabueze@gmail.com>"]
 name = "01"
 path = "src/problem_01.rs"
 
+[[bin]]
+name = "02"
+path = "src/problem_02.rs"
+
 [dependencies]
