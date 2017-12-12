@@ -1,0 +1,10 @@
+[package]
+name = "advent-of-code-2017"
+version = "0.1.0"
+authors = ["Kosi Nwabueze <kosinwabueze@gmail.com>"]
+
+[[bin]]
+name = "01"
+path = "src/problem_01.rs"
+
+[dependencies]
