@@ -7,9 +7,10 @@ fn inverse_captcha(sequence: &str) -> u32 {
     for (a, b) in sequence.chars().zip(
         sequence
             .chars()
-            .skip(len - 1)
-            .chain(sequence.chars().skip(1)),
+            .skip(1)
+            .chain(sequence.chars().take(1)),
     ) {
+        println!("a: {}, b: {}", a, b);
         if a == b {
             match a.to_digit(10) {
                 Some(n) => acc += n,
