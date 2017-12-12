@@ -2,14 +2,11 @@ const INPUT: &'static str = include_str!("../inputs/01.txt");
 
 fn inverse_captcha(sequence: &str) -> u32 {
     let mut acc: u32 = 0;
-    let len = sequence.len();
 
-    for (a, b) in sequence.chars().zip(
-        sequence
-            .chars()
-            .skip(1)
-            .chain(sequence.chars().take(1)),
-    ) {
+    for (a, b) in sequence
+        .chars()
+        .zip(sequence.chars().skip(1).chain(sequence.chars().take(1)))
+    {
         if a == b {
             match a.to_digit(10) {
                 Some(n) => acc += n,
@@ -25,16 +22,19 @@ fn inverse_captcha_2(sequence: &str) -> u32 {
     let mut acc: u32 = 0;
     let len = sequence.len();
 
-    for (a, b) in sequence.chars().enumerate().filter(|a| a.0 < len / 2)
+    for (a, b) in sequence
+        .chars()
+        .enumerate()
+        .filter(|a| a.0 < len / 2)
         .zip(sequence.chars().enumerate().filter(|a| a.0 >= len / 2))
-        {
-            if a.1 == b.1 {
-                acc += match b.1.to_digit(10) {
-                    Some(n) => n * 2,
-                    None => 0
-                };
-            }
+    {
+        if a.1 == b.1 {
+            acc += match b.1.to_digit(10) {
+                Some(n) => n * 2,
+                None => 0,
+            };
         }
+    }
 
     acc
 }
@@ -77,12 +77,12 @@ mod test_suite_2 {
     #[test]
     fn sequence_results_in_6() {
         assert_eq!(inverse_captcha_2("1212"), 6);
-    }   
+    }
 
     #[test]
     fn sequence_results_in_0() {
         assert_eq!(inverse_captcha_2("1221"), 0);
-    } 
+    }
 
     #[test]
     fn sequence_results_in_4() {
