@@ -11,4 +11,8 @@ path = "src/problem_01.rs"
 name = "02"
 path = "src/problem_02.rs"
 
+[[bin]]
+name = "03"
+path = "src/problem_03.rs"
+
 [dependencies]
